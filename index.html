@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国食物成分表</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <h1>中国食物成分表</h1>
+    <select id="fileSelector">
+        <option value="">请选择一个文件</option>
+    </select>
+    <table id="dataTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>食物名称</th>
+                <th>能量 (kcal)</th>
+                <th>蛋白质 (g)</th>
+                <!-- 添加更多列 -->
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            // 获取 JSON 文件列表
+            const files = [
+                "merged-禽肉类及其制品-鸡.json",
+                "merged-鱼虾蟹及软体动物.json"
+                // 添加更多文件名
+            ];
+
+            // 填充下拉菜单
+            files.forEach(file => {
+                $('#fileSelector').append(`<option value="${file}">${file}</option>`);
+            });
+
+            // 加载选定的 JSON 文件并显示数据
+            $('#fileSelector').change(function () {
+                const selectedFile = $(this).val();
+                if (!selectedFile) return;
+
+                $.getJSON(selectedFile, function (data) {
+                    const tableBody = $('#dataTable tbody');
+                    tableBody.empty(); // 清空表格
+
+                    data.forEach(item => {
+                        tableBody.append(`
+                            <tr>
+                                <td>${item.foodName || "未知"}</td>
+                                <td>${item.energyKCal || "未知"}</td>
+                                <td>${item.protein || "未知"}</td>
+                            </tr>
+                        `);
+                    });
+
+                    // 初始化或重新加载 DataTable
+                    $('#dataTable').DataTable({
+                        destroy: true, // 允许重新初始化
+                        paging: true,
+                        searching: true
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
