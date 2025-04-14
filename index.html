@@ -19,7 +19,9 @@
                 <th>食物名称</th>
                 <th>能量 (kcal)</th>
                 <th>蛋白质 (g)</th>
-                <!-- 添加更多列 -->
+                <th>脂肪 (g)</th>
+                <th>碳水化合物 (g)</th>
+                <th>钠 (mg)</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -27,16 +29,28 @@
 
     <script>
         $(document).ready(function () {
-            // 获取 JSON 文件列表
+            // JSON 文件列表
             const files = [
-    "https://xiekailin.github.io/china-food-composition-data/json_data/merged-禽肉类及其制品-鸡.json",
-    "https://xiekailin.github.io/china-food-composition-data/json_data/merged-鱼虾蟹及软体动物.json"
-      ];
+                "merged-乳类及其制品-其他.json",
+                "merged-乳类及其制品-奶油.json",
+                "merged-乳类及其制品-奶粉.json",
+                "merged-乳类及其制品-奶酪.json",
+                "merged-乳类及其制品-液态乳.json",
+                "merged-乳类及其制品-酸奶.json",
+                "merged-其他类-其他.json",
+                "merged-动物油脂类-动物油脂.json",
+                "merged-坚果种子类-树坚果.json",
+                "merged-坚果种子类-种子.json",
+                "merged-婴幼儿食品-婴儿配方食品(乳基).json",
+                "merged-婴幼儿食品-婴儿配方食品(豆基).json"
+            ];
 
+            const baseURL = "https://xiekailin.github.io/china-food-composition-data/json_data/";
 
             // 填充下拉菜单
             files.forEach(file => {
-                $('#fileSelector').append(`<option value="${file}">${file}</option>`);
+                const displayName = file.replace("merged-", "").replace(".json", "").replace(/-/g, " ");
+                $('#fileSelector').append(`<option value="${baseURL + file}">${displayName}</option>`);
             });
 
             // 加载选定的 JSON 文件并显示数据
@@ -54,6 +68,9 @@
                                 <td>${item.foodName || "未知"}</td>
                                 <td>${item.energyKCal || "未知"}</td>
                                 <td>${item.protein || "未知"}</td>
+                                <td>${item.fat || "未知"}</td>
+                                <td>${item.carbohydrate || "未知"}</td>
+                                <td>${item.sodium || "未知"}</td>
                             </tr>
                         `);
                     });
@@ -64,6 +81,8 @@
                         paging: true,
                         searching: true
                     });
+                }).fail(function () {
+                    alert("无法加载文件，请检查路径或文件格式！");
                 });
             });
         });
