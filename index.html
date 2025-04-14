@@ -149,11 +149,11 @@
                     $('#dataTable').DataTable({
                         paging: true,
                         searching: true,
-                        pageLength: 20,
-                        lengthMenu: [10, 20, 50, 100],
+                        lengthChange: true,
+                        responsive: true,
                         language: {
                             search: "搜索：",
-                            lengthMenu: "显示 _MENU_ 条记录",
+                            lengthMenu: "每页显示 _MENU_ 条记录",
                             info: "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
                             infoEmpty: "显示第 0 至 0 项记录，共 0 项",
                             infoFiltered: "(由 _MAX_ 项记录过滤)",
