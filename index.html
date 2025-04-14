@@ -41,8 +41,71 @@
                 "merged-动物油脂类-动物油脂.json",
                 "merged-坚果种子类-树坚果.json",
                 "merged-坚果种子类-种子.json",
-                "merged-婴幼儿食品-婴儿配方食品(乳基).json",
-                "merged-婴幼儿食品-婴儿配方食品(豆基).json"
+                "merged-婴幼儿食品-婴儿配方食品-婴儿配方食品(乳基).json",
+                "merged-婴幼儿食品-婴儿配方食品-婴儿配方食品(豆基).json",
+                "merged-婴幼儿食品-婴幼儿灌装辅助食品-汁类罐装食品.json",
+                "merged-婴幼儿食品-婴幼儿灌装辅助食品-泥糊状灌装食品.json",
+                "merged-婴幼儿食品-婴幼儿灌装辅助食品-颗粒状罐装食品.json",
+                "merged-婴幼儿食品-婴幼儿谷类辅助食品-婴幼儿生制类谷类辅助食品.json",
+                "merged-婴幼儿食品-婴幼儿谷类辅助食品-婴幼儿谷类辅助食品.json",
+                "merged-婴幼儿食品-婴幼儿谷类辅助食品-婴幼儿饼干或其他婴幼儿谷物辅助食品.json",
+                "merged-婴幼儿食品-婴幼儿谷类辅助食品-婴幼儿高蛋白谷类辅助食品.json",
+                "merged-婴幼儿食品-特殊医学用途婴儿配方食品-无乳糖配方或低乳糖配方.json",
+                "merged-婴幼儿食品-特殊医学用途婴儿配方食品-早产低出生体重婴儿配方.json",
+                "merged-婴幼儿食品-较大婴儿和幼儿配方食品-较大婴儿和幼儿配方食品(幼儿).json",
+                "merged-婴幼儿食品-较大婴儿和幼儿配方食品-较大婴儿和幼儿配方食品(较大婴儿).json",
+                "merged-婴幼儿食品-较大婴儿和幼儿配方食品-较大婴儿和幼儿配方食品(较大婴儿和幼儿).json",
+                "merged-干豆类及其制品-其他.json",
+                "merged-干豆类及其制品-大豆.json",
+                "merged-干豆类及其制品-绿豆.json",
+                "merged-干豆类及其制品-芸豆.json",
+                "merged-干豆类及其制品-蚕豆.json",
+                "merged-干豆类及其制品-赤豆.json",
+                "merged-植物油.json",
+                "merged-水果类及其制品-仁果类.json",
+                "merged-水果类及其制品-柑橘类.json",
+                "merged-水果类及其制品-核果类.json",
+                "merged-水果类及其制品-浆果类.json",
+                "merged-水果类及其制品-热带亚热带水果.json",
+                "merged-水果类及其制品-瓜果类.json",
+                "merged-畜肉类及其制品-其他.json",
+                "merged-畜肉类及其制品-牛.json",
+                "merged-畜肉类及其制品-猪.json",
+                "merged-畜肉类及其制品-羊.json",
+                "merged-畜肉类及其制品-马.json",
+                "merged-畜肉类及其制品-驴.json",
+                "merged-禽肉类及其制品-其他.json",
+                "merged-禽肉类及其制品-火鸡.json",
+                "merged-禽肉类及其制品-鸡.json",
+                "merged-禽肉类及其制品-鸭.json",
+                "merged-禽肉类及其制品-鹅.json",
+                "merged-菌藻类-菌类.json",
+                "merged-菌藻类-藻类.json",
+                "merged-蔬菜类及其制品-嫩茎叶花菜类.json",
+                "merged-蔬菜类及其制品-根菜类.json",
+                "merged-蔬菜类及其制品-水生蔬菜类.json",
+                "merged-蔬菜类及其制品-茄果瓜菜类.json",
+                "merged-蔬菜类及其制品-葱蒜类.json",
+                "merged-蔬菜类及其制品-薯芋类.json",
+                "merged-蔬菜类及其制品-野生蔬菜类.json",
+                "merged-蔬菜类及其制品-鲜豆类.json",
+                "merged-薯类淀粉及其制品-淀粉类.json",
+                "merged-薯类淀粉及其制品-薯类.json",
+                "merged-蛋类及其制品-鸡蛋.json",
+                "merged-蛋类及其制品-鸭蛋.json",
+                "merged-蛋类及其制品-鹅蛋.json",
+                "merged-蛋类及其制品-鹌鹑蛋.json",
+                "merged-谷类及其制品-其他.json",
+                "merged-谷类及其制品-大麦.json",
+                "merged-谷类及其制品-小米黄米.json",
+                "merged-谷类及其制品-小麦.json",
+                "merged-谷类及其制品-玉米.json",
+                "merged-谷类及其制品-稻米.json",
+                "merged-鱼虾蟹贝类-其他.json",
+                "merged-鱼虾蟹贝类-虾.json",
+                "merged-鱼虾蟹贝类-蟹.json",
+                "merged-鱼虾蟹贝类-贝.json",
+                "merged-鱼虾蟹贝类-鱼.json"
             ];
 
             const baseURL = "https://xiekailin.github.io/china-food-composition-data/json_data/";
@@ -58,9 +121,16 @@
                 const selectedFile = $(this).val();
                 if (!selectedFile) return;
 
+                // 如果DataTable已经存在，先销毁它
+                if ($.fn.DataTable.isDataTable('#dataTable')) {
+                    $('#dataTable').DataTable().destroy();
+                }
+                
+                // 清空表格内容
+                $('#dataTable tbody').empty();
+
                 $.getJSON(selectedFile, function (data) {
                     const tableBody = $('#dataTable tbody');
-                    tableBody.empty(); // 清空表格
 
                     data.forEach(item => {
                         tableBody.append(`
@@ -69,17 +139,31 @@
                                 <td>${item.energyKCal || "未知"}</td>
                                 <td>${item.protein || "未知"}</td>
                                 <td>${item.fat || "未知"}</td>
-                                <td>${item.carbohydrate || "未知"}</td>
-                                <td>${item.sodium || "未知"}</td>
+                                <td>${item.CHO || "未知"}</td>
+                                <td>${item.Na || "未知"}</td>
                             </tr>
                         `);
                     });
 
-                    // 初始化或重新加载 DataTable
+                    // 初始化新的DataTable
                     $('#dataTable').DataTable({
-                        destroy: true, // 允许重新初始化
                         paging: true,
-                        searching: true
+                        searching: true,
+                        pageLength: 20,
+                        lengthMenu: [10, 20, 50, 100],
+                        language: {
+                            search: "搜索：",
+                            lengthMenu: "显示 _MENU_ 条记录",
+                            info: "显示第 _START_ 至 _END_ 项记录，共 _TOTAL_ 项",
+                            infoEmpty: "显示第 0 至 0 项记录，共 0 项",
+                            infoFiltered: "(由 _MAX_ 项记录过滤)",
+                            paginate: {
+                                first: "首页",
+                                previous: "上页",
+                                next: "下页",
+                                last: "末页"
+                            }
+                        }
                     });
                 }).fail(function () {
                     alert("无法加载文件，请检查路径或文件格式！");
